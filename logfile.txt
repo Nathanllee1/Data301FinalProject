@@ -1,0 +1,63 @@
+Start Log
+
+9/23/2020
+Nathan, Janis, and Bella meet for the first time to brainstorm project ideas. We came up with a few possibilities: 
+-Using Youtube API to find what makes a channel successful as measured by followers, views, and average like to dislike ratio
+-Use ML to identify fake news versus real news
+-Correlation between nearest factory and cancer rates
+-Correlation between weather patterns and fires in a geographic location
+
+9/29/2020
+Janis finds a dataset for fires in Washington State ranging from 1973-2019 and climate monitoring data from NOAA
+Bella finds a dataset for cancer rates by geographic location.
+Nathan finds a dataset for United States Cancer Statistics visualizations
+
+Based on the datasets and general interest, the team decided to use ML to predict when fire season would be and its severity based on weather data. 
+
+10/01/2020
+Bella finds a variety of weather datasets for Washington to pair with the WA fire dataset Janis found, however the data wasn’t consolidated and would be hard to work with. Team decides we need to find better weather data.
+Nathan starts a spreadsheet to keep track of datasets we find, and plan on meeting next week after looking for better data. 
+
+10/29/2020
+Bella finds Weather API, Nathan creates shared Colab Notebook to explore the data. We all agree to explore the dataset before we meet next to see which attributes we should focus on. We realize the API is locked behind a paywall and decide not to use it.
+
+11/12/2020
+Janis finds a comprehensive fire dataset spanning the state of California from 1950 to present. We decided to explore the dataset and try to find initial patterns and then meet again in 2 days to decide whether to use the dataset going forwards.
+
+11/14/2020
+Janis found the NOAA weather dataset. Bella places a request for weather data in California containing daily values for average, min, max temperatures, wind direction, total precipitation. This yielded 73 weather stations spread across California, and would require data processing to get monthly averages from daily data. 
+
+11/15/2020
+Nathan creates visualizations for our fire dataset to identify trends and understand the data. Bella receives the data order from NOAA. Janis researches theory behind calculating distances on a sphere and then writes a function to connect each fire with the closest weather station using latitude and longitude so we can contextualize the fire within our weather data.
+
+11/16/2020
+Bella finishes processing the weather data and generates monthly averages/normals for each weather station.
+
+11/19/2020
+Group finalizes a plan for processing data and selects the input and output for the machine learning model. We call Professor Stanchev to review our plan before going forward and he recommends we split our data into regions. The machine learning model will take the average temperature for a region over the past 3 months and then predict the acreage burned and the number of fires. To simplify the output, we decided that we should classify each fire month on a scale of severity.
+
+11/21/2020
+Bella proposes we split the regions by biome or climate. Nathan finds a shape file that splits California into 16 bioregions. Janis starts writing code to associate each fire with a region. 
+
+11/25/2020
+Janis: start writing introduction and background of final report and find a metric for fire severity
+Nathan: split fire data by region and month and getting count of acreage burnt and count of fires
+Bella: take weather by region and month and get average weather data
+
+11/26/2020
+Nathan and Bella run into issues joining bioregion dataframe and fire/weather dataframes. Bella realizes the coordinate scales don’t match, but the weather data given by NOAA has no coordinate scales. None of the group has enough experience with determining coordinate scales, so this is a major problem. We can’t group the data by region which means we can’t join our data together across a common feature or count the number of fires in a region or total acreage burned. 
+
+11/27/2020
+Bella manually splits California into three regions, Northern, Central, Southern by creating three polygons based on the existing bioregions. From there Bella is able to process the weather data and generate the input data. Now that grouping by region is possible, Nathan is able to process the fire data and determine the output data. Janis finds an official classification of fires based on acreage burned and writes a method to classify each fire. Janis also keeps working on the report. 
+
+Janis creates a linear regression model and kNN model, and tunes them to our data. This takes a while so Bella starts working on finishing the rest of the report. Nathan creates a neural network. All machine learning models are tuned to be within an acceptable error, and confusion matrices are generated to understand the findings. 
+
+11/28/2020
+Nathan and Janis continue refining the machine learning models. Everyone continues to work on the final report and slides.
+
+
+11/29/2020
+Everyone documents their code and exports it. Bella creates a README.txt as a guide to our multiple Colab notebooks and finishes up the report. Janis and Nathan work on the slides and generate visuals. Final touches are made to the project to get ready for submission. 
+
+End of Log
+
